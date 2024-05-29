@@ -33,8 +33,27 @@ extension RequestProtocol {
         APIConstants.scheme
     }
     
+    func createURLRequest() throws -> URLRequest {
+        var components = URLComponents()
+        components.scheme = scheme
+        components.host = host
+        components.path = path
+
+          guard let url = components.url
+          else { throw NetworkError.invalidUrl }
+
+          var urlRequest = URLRequest(url: url)
+          urlRequest.httpMethod = requestType.rawValue
+
+
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        return urlRequest
+    }
     
-    func createURLRequest(authToken: String) throws -> URLRequest? {
-        nil
+    func perform(_ request: URLRequest) async throws -> Data {
+      let (data, response) =
+        try await URLSession.shared.data(for: request)
+      return data
     }
 }
