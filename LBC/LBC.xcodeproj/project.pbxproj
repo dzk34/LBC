@@ -22,6 +22,9 @@
 		29C0BCBC2C0782FE0056B120 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCBB2C0782FE0056B120 /* CategoryCell.swift */; };
 		29C0BCBF2C0783A70056B120 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCBE2C0783A70056B120 /* UIHelpers.swift */; };
 		29C0BCC12C07893D0056B120 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCC02C07893D0056B120 /* CategoryViewController.swift */; };
+		29C0BCC42C0791140056B120 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCC32C0791140056B120 /* APIConstants.swift */; };
+		29C0BCC82C0791640056B120 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCC72C0791640056B120 /* RequestProtocol.swift */; };
+		29C0BCCA2C0792FC0056B120 /* ClassifiedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCC92C0792FC0056B120 /* ClassifiedsRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +64,9 @@
 		29C0BCBB2C0782FE0056B120 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		29C0BCBE2C0783A70056B120 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
 		29C0BCC02C07893D0056B120 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		29C0BCC32C0791140056B120 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		29C0BCC72C0791640056B120 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
+		29C0BCC92C0792FC0056B120 /* ClassifiedsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedsRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,7 @@
 		29C0BCAB2C077E110056B120 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				29C0BCC22C0790FE0056B120 /* Data */,
 				29C0BCB32C077F350056B120 /* Utils */,
 				29C0BCAC2C077E1A0056B120 /* Domain */,
 			);
@@ -191,6 +198,32 @@
 				29C0BCBE2C0783A70056B120 /* UIHelpers.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		29C0BCC22C0790FE0056B120 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				29C0BCC62C0791490056B120 /* Request */,
+				29C0BCC52C0791430056B120 /* Network */,
+				29C0BCC32C0791140056B120 /* APIConstants.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		29C0BCC52C0791430056B120 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		29C0BCC62C0791490056B120 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				29C0BCC72C0791640056B120 /* RequestProtocol.swift */,
+				29C0BCC92C0792FC0056B120 /* ClassifiedsRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,10 +359,13 @@
 			files = (
 				29C0BC802C077CA20056B120 /* ViewController.swift in Sources */,
 				29C0BCB92C077FA00056B120 /* MockData.swift in Sources */,
+				29C0BCCA2C0792FC0056B120 /* ClassifiedsRequest.swift in Sources */,
 				29C0BCB22C077E6C0056B120 /* ClassifiedAd.swift in Sources */,
 				29C0BCBF2C0783A70056B120 /* UIHelpers.swift in Sources */,
 				29C0BCBC2C0782FE0056B120 /* CategoryCell.swift in Sources */,
 				29C0BC7C2C077CA20056B120 /* AppDelegate.swift in Sources */,
+				29C0BCC82C0791640056B120 /* RequestProtocol.swift in Sources */,
+				29C0BCC42C0791140056B120 /* APIConstants.swift in Sources */,
 				29C0BC7E2C077CA20056B120 /* SceneDelegate.swift in Sources */,
 				29C0BCC12C07893D0056B120 /* CategoryViewController.swift in Sources */,
 				29C0BCB02C077E4E0056B120 /* Category.swift in Sources */,
