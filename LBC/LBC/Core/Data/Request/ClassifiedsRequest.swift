@@ -18,11 +18,11 @@ enum ClassifiedsRequest: RequestProtocol {
         case .fetchCategories:
             return "/leboncoin/paperclip/master/categories.json"
         case .fetchCategory(id: let id):
-            return "Url to fetch a Category using id"
+            return "Url to fetch a Category using \(id)"
         case .fetchClassifieds:
             return "leboncoin/paperclip/master/listing.json"
         case .fetchClassified(id: let id):
-            return "Url to fetch a listing using id"
+            return "Url to fetch a listing using \(id)"
         }
     }
     
