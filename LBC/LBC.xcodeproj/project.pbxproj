@@ -30,7 +30,7 @@
 		29C0BCD02C079DD50056B120 /* RequestManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCCF2C079DD50056B120 /* RequestManager.swift */; };
 		29C0BCD22C079F390056B120 /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCD12C079F390056B120 /* DataParser.swift */; };
 		29C0BCD62C085B560056B120 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCD52C085B560056B120 /* APIManagerMock.swift */; };
-		29C0BCD82C085C5D0056B120 /* ClassifiedsRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCD72C085C5D0056B120 /* ClassifiedsRequestMock.swift */; };
+		29C0BCD82C085C5D0056B120 /* CategoriesRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCD72C085C5D0056B120 /* CategoriesRequestMock.swift */; };
 		29C0BCDB2C085DE80056B120 /* RequestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCDA2C085DE80056B120 /* RequestManagerTests.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,7 +79,7 @@
 		29C0BCCF2C079DD50056B120 /* RequestManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManager.swift; sourceTree = "<group>"; };
 		29C0BCD12C079F390056B120 /* DataParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 		29C0BCD52C085B560056B120 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
-		29C0BCD72C085C5D0056B120 /* ClassifiedsRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedsRequestMock.swift; sourceTree = "<group>"; };
+		29C0BCD72C085C5D0056B120 /* CategoriesRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRequestMock.swift; sourceTree = "<group>"; };
 		29C0BCDA2C085DE80056B120 /* RequestManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,7 +258,7 @@
 			children = (
 				29C0BCD92C085DDD0056B120 /* Network */,
 				29C0BCD52C085B560056B120 /* APIManagerMock.swift */,
-				29C0BCD72C085C5D0056B120 /* ClassifiedsRequestMock.swift */,
+				29C0BCD72C085C5D0056B120 /* CategoriesRequestMock.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -427,7 +427,7 @@
 			files = (
 				29C0BCD62C085B560056B120 /* APIManagerMock.swift in Sources */,
 				29C0BC932C077CA40056B120 /* LBCTests.swift in Sources */,
-				29C0BCD82C085C5D0056B120 /* ClassifiedsRequestMock.swift in Sources */,
+				29C0BCD82C085C5D0056B120 /* CategoriesRequestMock.swift in Sources */,
 				29C0BCDB2C085DE80056B120 /* RequestManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
