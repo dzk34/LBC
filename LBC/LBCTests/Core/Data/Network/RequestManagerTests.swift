@@ -15,7 +15,7 @@ class RequestManagerTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        requestManager = RequestManagerMock(apiManager: APIManagerMock())
+        requestManager = RequestManagerMock(apiManager: APIManagerMock(), dataParser: DataParser())
     }
     
     func testRequestCategories() async throws {

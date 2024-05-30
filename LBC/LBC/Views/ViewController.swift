@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     var categories: [Category] = []
     private let requestManager: RequestManagerProtocol
 
-    init(requestManager: RequestManagerProtocol = RequestManager()) {
+    init(requestManager: RequestManagerProtocol = RequestManager(apiManager: APIManager(), dataParser: DataParser())) { //TODO
         self.requestManager = requestManager
         super.init(nibName: nil, bundle: nil)
     }
