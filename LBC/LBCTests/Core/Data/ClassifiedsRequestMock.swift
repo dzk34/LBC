@@ -10,15 +10,15 @@ import Foundation
 @testable import LBC
 
 enum ClassifiedsRequestMock: RequestProtocol {
-    case fetchCategories
+    case fetchClassifieds
 
     var path: String {
-        guard let path = Bundle.main.path(forResource: "categories", ofType: "json") else { return "" }
+        guard let path = Bundle.main.path(forResource: "listing", ofType: "json") else { return "" }
         
         return path
     }
     
     var requestType: RequestType {
         .get
-    }    
+    }
 }

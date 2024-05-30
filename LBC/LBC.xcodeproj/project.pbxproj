@@ -32,6 +32,7 @@
 		29C0BCD62C085B560056B120 /* APIManagerMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCD52C085B560056B120 /* APIManagerMock.swift */; };
 		29C0BCD82C085C5D0056B120 /* CategoriesRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCD72C085C5D0056B120 /* CategoriesRequestMock.swift */; };
 		29C0BCDB2C085DE80056B120 /* RequestManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCDA2C085DE80056B120 /* RequestManagerTests.swift */; };
+		29C0BCDD2C08609E0056B120 /* ClassifiedsRequestMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCDC2C08609E0056B120 /* ClassifiedsRequestMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,7 @@
 		29C0BCD52C085B560056B120 /* APIManagerMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIManagerMock.swift; sourceTree = "<group>"; };
 		29C0BCD72C085C5D0056B120 /* CategoriesRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesRequestMock.swift; sourceTree = "<group>"; };
 		29C0BCDA2C085DE80056B120 /* RequestManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestManagerTests.swift; sourceTree = "<group>"; };
+		29C0BCDC2C08609E0056B120 /* ClassifiedsRequestMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedsRequestMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 				29C0BCD92C085DDD0056B120 /* Network */,
 				29C0BCD52C085B560056B120 /* APIManagerMock.swift */,
 				29C0BCD72C085C5D0056B120 /* CategoriesRequestMock.swift */,
+				29C0BCDC2C08609E0056B120 /* ClassifiedsRequestMock.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				29C0BCDD2C08609E0056B120 /* ClassifiedsRequestMock.swift in Sources */,
 				29C0BCD62C085B560056B120 /* APIManagerMock.swift in Sources */,
 				29C0BC932C077CA40056B120 /* LBCTests.swift in Sources */,
 				29C0BCD82C085C5D0056B120 /* CategoriesRequestMock.swift in Sources */,
