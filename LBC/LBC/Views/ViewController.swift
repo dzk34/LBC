@@ -67,8 +67,8 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell") as! CategoryCell
-        cell.bind(to: categories[indexPath.row])
+        let cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCell") as! UITableViewCell
+//        cell.bind(to: categories[indexPath.row])
         return cell
     }
 }

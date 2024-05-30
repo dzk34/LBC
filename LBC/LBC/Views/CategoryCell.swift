@@ -7,39 +7,47 @@
 
 import UIKit
 
-class CategoryCell: UITableViewCell {
+class CategoryCell: UICollectionViewCell {
     
     // MARK: Views
-    private lazy var titleLabel: UILabel = {
-       let label = UILabel()
+    private lazy var nameLabel: UILabel = {
+        let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = .systemFont(ofSize: 26)
+        label.textColor = .black
+        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.textAlignment = .center
+        label.numberOfLines = 0
         return label
     }()
 
+
     // MARK: Init
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         setupUI()
     }
-    
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
     }
 
     func setupUI() {
-        contentView.addSubview(titleLabel)
+        contentView.addSubview(nameLabel)
+        
+        contentView.layer.borderColor = UIColor.darkGray.cgColor
+        contentView.layer.borderWidth = 1.0
+        contentView.layer.cornerRadius = 8.0
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: Constants.padding/2),
-            titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: Constants.padding),
-            titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -Constants.padding),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -Constants.padding/2)
+            nameLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            nameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            nameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            nameLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ])
     }
     
     func bind(to category: Category) {
-        titleLabel.text = category.name
+        nameLabel.text = category.name
     }
 }
