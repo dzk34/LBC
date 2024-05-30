@@ -11,16 +11,11 @@ import XCTest
 @testable import LBC
 
 class RequestManagerTests: XCTestCase {
-    private var requestManager: RequestManagerProtocol?
+    private var requestManager: RequestManagerMock?
     
     override func setUp() {
         super.setUp()
-        
-        guard let userDefaults = UserDefaults(suiteName: #file) else { return }
-        
-        userDefaults.removePersistentDomain(forName: #file)
-        
-        requestManager = RequestManager(apiManager: APIManagerMock())
+        requestManager = RequestManagerMock(apiManager: APIManagerMock())
     }
     
     func testRequestCategories() async throws {

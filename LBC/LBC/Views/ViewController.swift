@@ -10,6 +10,16 @@ import UIKit
 class ViewController: UIViewController {
     // MARK: Properties
     var categories: [Category] = []
+    private let requestManager: RequestManagerProtocol
+
+    init(requestManager: RequestManagerProtocol = RequestManager()) {
+        self.requestManager = requestManager
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     private lazy var tableView: UITableView = {
         let view = UITableView()
@@ -25,8 +35,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        
+        Task {
+            await fetchPodcasts()
+            tableView.reloadData()
+        }
 
-        categories = MockData().categories
         view.addSubview(tableView)
         
         NSLayoutConstraint.activate([
@@ -35,7 +49,15 @@ class ViewController: UIViewController {
             tableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
         ])
-
+    }
+    
+    func fetchPodcasts() async {
+        do {
+            let categoryList: [Category] = try await requestManager.perform(ClassifiedsRequest.fetchCategories)
+            categories = categoryList
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 }
 
