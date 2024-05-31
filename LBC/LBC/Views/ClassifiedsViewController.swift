@@ -8,19 +8,24 @@
 import UIKit
 
 class ClassifiedsViewController: UIViewController {
+    let cellId = "ClassifiedCell"
     var classifiedAd: [ClassifiedAd] = []
     private var viewModel: ClassifiedsViewModel
 
     let category: Category?
 
-    private lazy var tableView: UITableView = {
-        let view = UITableView()
+    private lazy var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+//        layout.itemSize = CGSize(width: view.frame.width / 2, height: 180)
+//        layout.minimumInteritemSpacing = Constants.padding
+        layout.minimumLineSpacing = Constants.padding
+
+        let view = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
         view.dataSource = self
         view.delegate = self
-        view.rowHeight = UITableView.automaticDimension
-        view.estimatedRowHeight = Constants.rowHeight
-        view.register(ClassifiedCell.self, forCellReuseIdentifier: "ClassifiedCell")
+        view.register(ClassifiedCell.self, forCellWithReuseIdentifier: cellId)
+        view.backgroundColor = .clear
         return view
     }()
 
@@ -42,7 +47,7 @@ class ClassifiedsViewController: UIViewController {
             await loadData()
             if let category = category {
                 classifiedAd.removeAll { $0.categoryId != category.id}
-                tableView.reloadData()
+                collectionView.reloadData()
             } else {
                 print("no category")
             }
@@ -51,15 +56,14 @@ class ClassifiedsViewController: UIViewController {
 
     func setupUI() {
         view.backgroundColor = .white
-        view.addSubview(tableView)
+        view.addSubview(collectionView)
 
-        NSLayoutConstraint.activate([
-            tableView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-            tableView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-            tableView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-            tableView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
-        ])
-
+//        NSLayoutConstraint.activate([
+//            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
+//            collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
+//            collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
+//            collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
+//        ])
     }
     
     func loadData() async {
@@ -67,23 +71,39 @@ class ClassifiedsViewController: UIViewController {
     }
 }
 
-extension ClassifiedsViewController: UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension ClassifiedsViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         classifiedAd.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ClassifiedCell") as! ClassifiedCell
-        cell.bind(to: classifiedAd[indexPath.row])
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! ClassifiedCell
+
+        cell.bind(to: classifiedAd[indexPath.row], category: category)
         return cell
     }
 }
 
-extension ClassifiedsViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        
-//        let vc = CategoryViewController(category: classifiedAd[indexPath.row])
-//        navigationController?.pushViewController(vc, animated: true)
+extension ClassifiedsViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                  layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 1.0, left: Constants.padding, bottom: 1.0, right: Constants.padding)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                   layout collectionViewLayout: UICollectionViewLayout,
+                   sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let layout = collectionViewLayout as! UICollectionViewFlowLayout
+        let widthPerItem = collectionView.frame.width / 2 - layout.minimumInteritemSpacing
+        return CGSize(width: widthPerItem - Constants.padding, height: widthPerItem * 2)
+    }
+}
+
+extension ClassifiedsViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Selected item")
+        let vc = ClassifiedDetailsViewController(classifiedAd: classifiedAd[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
     }
 }

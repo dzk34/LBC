@@ -15,7 +15,7 @@ struct ClassifiedAd: Codable {
     let description: String
     let imagesUrl: ImagesURL?
     let isUrgent: Bool
-    let price: CGFloat
+    let price: Int
     let siret: String?
     
     enum CodingKeys: String, CodingKey {

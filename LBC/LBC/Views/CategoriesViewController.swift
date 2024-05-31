@@ -9,6 +9,7 @@ import UIKit
 //import Combine
 
 class CategoriesViewController: UIViewController {
+    let cellId = "CategoryCell"
     var categories: [Category] = []
     private var viewModel: CategoriesViewModel
 
@@ -48,7 +49,7 @@ class CategoriesViewController: UIViewController {
         layout.minimumLineSpacing = 10
         
         collectionView = UICollectionView(frame: view.frame, collectionViewLayout: layout)
-        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: "CategoryCell")
+        collectionView.register(CategoryCell.self, forCellWithReuseIdentifier: cellId)
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.backgroundColor = .clear
@@ -67,7 +68,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! CategoryCell
         cell.bind(to: categories[indexPath.row])
         return cell
     }

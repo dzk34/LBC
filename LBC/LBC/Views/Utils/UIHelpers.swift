@@ -8,6 +8,8 @@
 import UIKit
 
 enum Constants {
+    static let currency = "€"
+    static let urgencyText = "Urgent"
     static let padding: CGFloat = 16.0
     static let topSpacing: CGFloat = 32.0
     static let labelSpacing: CGFloat = 24.0
