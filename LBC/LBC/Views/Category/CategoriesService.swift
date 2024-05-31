@@ -27,7 +27,6 @@ extension CategoriesService {
             let categoriesList: [Category] = try await requestManager.perform(requestData)
             return categoriesList
         } catch {
-            print(error)
             return []
         }
     }

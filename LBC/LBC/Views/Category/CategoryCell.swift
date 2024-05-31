@@ -10,9 +10,8 @@ import UIKit
 class CategoryCell: UICollectionViewCell {
     
     // MARK: Views
-    private lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var nameLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .black
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         label.textAlignment = .center

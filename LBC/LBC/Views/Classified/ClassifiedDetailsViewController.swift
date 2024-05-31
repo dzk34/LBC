@@ -33,51 +33,38 @@ class ClassifiedDetailsViewController: ViewController {
         return imageView
     }()
 
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var titleLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textAlignment = .left
         label.numberOfLines = 0
         return label
     }()
 
-    private lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var priceLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .systemOrange
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textAlignment = .left
         label.numberOfLines = 1
         return label
     }()
 
-    private lazy var categoryLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var categoryLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textAlignment = .left
         label.numberOfLines = 0
         return label
     }()
 
-    private lazy var urgentLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .systemRed
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
+    private lazy var urgentLabel: LBCLabel = {
+        let label = LBCLabel()
+        label.textColor = .systemOrange
         label.textAlignment = .right
         label.numberOfLines = 1
         return label
     }()
 
-    private lazy var descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.preferredFont(forTextStyle: .title2)
+    private lazy var descriptionLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .darkGray
-        label.textAlignment = .left
         label.numberOfLines = 0
         return label
     }()

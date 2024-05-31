@@ -11,7 +11,7 @@ struct ClassifiedAd: Codable {
     let id: Int
     let title: String
     let categoryId: Int
-    let creationDate: String // format: "yyyy-MM-dd'T'HH:mm:ssZ"
+    let creationDate: String
     let description: String
     let imagesUrl: ImagesURL?
     let isUrgent: Bool

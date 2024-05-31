@@ -16,8 +16,6 @@ class ClassifiedsViewController: ViewController {
 
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-//        layout.itemSize = CGSize(width: view.frame.width / 2, height: 180)
-//        layout.minimumInteritemSpacing = Constants.padding
         layout.minimumLineSpacing = Constants.padding
 
         let view = UICollectionView(frame: view.frame, collectionViewLayout: layout)
@@ -56,13 +54,6 @@ class ClassifiedsViewController: ViewController {
 
     func setupUI() {
         view.addSubview(collectionView)
-
-//        NSLayoutConstraint.activate([
-//            collectionView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
-//            collectionView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-//            collectionView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-//            collectionView.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor)
-//        ])
     }
     
     func loadData() async {
@@ -101,7 +92,6 @@ extension ClassifiedsViewController: UICollectionViewDelegateFlowLayout {
 
 extension ClassifiedsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Selected item")
         let vc = ClassifiedDetailsViewController(classifiedAd: classifiedAd[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }

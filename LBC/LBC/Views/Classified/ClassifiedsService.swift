@@ -27,7 +27,6 @@ extension ClassifiedsService {
             let classifiedAd: [ClassifiedAd] = try await requestManager.perform(requestData)
             return classifiedAd
         } catch {
-            print(error)
             return []
         }
     }

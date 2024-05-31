@@ -30,41 +30,30 @@ final class ClassifiedCell: UICollectionViewCell {
         return view
     }()
 
-    private lazy var titleLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var titleLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textAlignment = .left
         label.numberOfLines = 2
         return label
     }()
 
-    private lazy var priceLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var priceLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .systemOrange
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textAlignment = .left
         label.numberOfLines = 1
         return label
     }()
 
-    private lazy var categoryLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var categoryLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .black
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
-        label.textAlignment = .left
         label.numberOfLines = 1
         return label
     }()
 
-    private lazy var urgentLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
+    private lazy var urgentLabel: LBCLabel = {
+        let label = LBCLabel()
         label.textColor = .systemOrange
-        label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textAlignment = .right
         label.numberOfLines = 1
         return label
@@ -108,7 +97,6 @@ final class ClassifiedCell: UICollectionViewCell {
     }
     
     func bind(to classifiedAd: ClassifiedAd, category: Category?) {
-        print(classifiedAd.title)
         titleLabel.text = classifiedAd.title
         priceLabel.text = "\(classifiedAd.price) \(Constants.currency)"
         categoryLabel.text = category?.name
