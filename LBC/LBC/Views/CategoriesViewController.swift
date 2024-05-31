@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Combine
+//import Combine
 
 class CategoriesViewController: UIViewController {
     var categories: [Category] = []
@@ -31,6 +31,16 @@ class CategoriesViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        setupUI()
+        
+        Task {
+            await loadData()
+            collectionView.reloadData()
+        }
+    }
+
+    func setupUI() {
         view.backgroundColor = .white
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width - Constants.padding, height: 150)
@@ -44,13 +54,8 @@ class CategoriesViewController: UIViewController {
         collectionView.backgroundColor = .clear
         
         view.addSubview(collectionView)
-
-        Task {
-            await loadData()
-            collectionView.reloadData()
-        }
     }
-
+    
     func loadData() async {
         categories = await viewModel.fetchCategories()
     }
@@ -70,9 +75,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
 
 extension CategoriesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = CategoryViewController(category: categories[indexPath.row])
-
-        print("selected category: \(categories[indexPath.row].name)")
+        let vc = ClassifiedsViewController(viewModel: ClassifiedsViewModel(classifiedsService: ClassifiedsService(requestManager: RequestManager(apiManager: APIManager(), dataParser: DataParser()))), category: categories[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
 }

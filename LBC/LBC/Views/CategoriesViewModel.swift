@@ -16,7 +16,7 @@ final class CategoriesViewModel: ObservableObject {
         self.categoriesService = categoriesService
     }
     
-    func fetchCategories() async -> [Category ]{
+    func fetchCategories() async -> [Category]{
         await categoriesService.fetchCategories()
     }
 }

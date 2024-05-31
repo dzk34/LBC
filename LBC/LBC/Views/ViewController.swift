@@ -56,7 +56,7 @@ class ViewController: UIViewController {
             let categoryList: [Category] = try await requestManager.perform(ClassifiedsRequest.fetchCategories)
             categories = categoryList
         } catch {
-            print(error.localizedDescription)
+            print(error)
         }
     }
 }

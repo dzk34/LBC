@@ -13,7 +13,7 @@ struct ClassifiedAd: Codable {
     let categoryId: Int
     let creationDate: String // format: "yyyy-MM-dd'T'HH:mm:ssZ"
     let description: String
-    let imagesUrl: ImagesURL
+    let imagesUrl: ImagesURL?
     let isUrgent: Bool
     let price: CGFloat
     let siret: String?
@@ -29,6 +29,6 @@ struct ClassifiedAd: Codable {
 
 
 struct ImagesURL: Codable {
-    let small: String? //add placeholder?
+    let small: String?
     let thumb: String?
 }

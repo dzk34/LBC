@@ -46,9 +46,4 @@ extension RequestProtocol {
 
         return urlRequest
     }
-    
-    func perform(_ request: URLRequest) async throws -> Data {
-        let (data, response) = try await URLSession.shared.data(for: request)
-        return data
-    }
 }
