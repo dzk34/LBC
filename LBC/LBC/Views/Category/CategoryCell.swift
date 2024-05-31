@@ -15,7 +15,6 @@ class CategoryCell: UICollectionViewCell {
         label.textColor = .black
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
         label.textAlignment = .center
-        label.numberOfLines = 0
         return label
     }()
 

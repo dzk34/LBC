@@ -13,7 +13,6 @@
 		29BE24532C09228000D01315 /* ClassifiedsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE24522C09228000D01315 /* ClassifiedsService.swift */; };
 		29BE24552C09D86D00D01315 /* ClassifiedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE24542C09D86D00D01315 /* ClassifiedCell.swift */; };
 		29BE24572C0A1E8600D01315 /* ClassifiedDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE24562C0A1E8600D01315 /* ClassifiedDetailsViewController.swift */; };
-		29BE24592C0A320100D01315 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE24582C0A320100D01315 /* UIColor+Extension.swift */; };
 		29BE245B2C0A36BD00D01315 /* LBCImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE245A2C0A36BD00D01315 /* LBCImageView.swift */; };
 		29BE245F2C0A41F800D01315 /* LBCLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE245E2C0A41F800D01315 /* LBCLabel.swift */; };
 		29C0BC7C2C077CA20056B120 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BC7B2C077CA20056B120 /* AppDelegate.swift */; };
@@ -30,7 +29,6 @@
 		29C0BCB92C077FA00056B120 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCB82C077FA00056B120 /* MockData.swift */; };
 		29C0BCBC2C0782FE0056B120 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCBB2C0782FE0056B120 /* CategoryCell.swift */; };
 		29C0BCBF2C0783A70056B120 /* UIHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCBE2C0783A70056B120 /* UIHelpers.swift */; };
-		29C0BCC12C07893D0056B120 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCC02C07893D0056B120 /* CategoryViewController.swift */; };
 		29C0BCC42C0791140056B120 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCC32C0791140056B120 /* APIConstants.swift */; };
 		29C0BCC82C0791640056B120 /* RequestProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCC72C0791640056B120 /* RequestProtocol.swift */; };
 		29C0BCCA2C0792FC0056B120 /* ClassifiedsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29C0BCC92C0792FC0056B120 /* ClassifiedsRequest.swift */; };
@@ -71,7 +69,6 @@
 		29BE24522C09228000D01315 /* ClassifiedsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedsService.swift; sourceTree = "<group>"; };
 		29BE24542C09D86D00D01315 /* ClassifiedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedCell.swift; sourceTree = "<group>"; };
 		29BE24562C0A1E8600D01315 /* ClassifiedDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedDetailsViewController.swift; sourceTree = "<group>"; };
-		29BE24582C0A320100D01315 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		29BE245A2C0A36BD00D01315 /* LBCImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCImageView.swift; sourceTree = "<group>"; };
 		29BE245E2C0A41F800D01315 /* LBCLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LBCLabel.swift; sourceTree = "<group>"; };
 		29C0BC782C077CA20056B120 /* LBC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LBC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,7 +89,6 @@
 		29C0BCB82C077FA00056B120 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockData.swift; sourceTree = "<group>"; };
 		29C0BCBB2C0782FE0056B120 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		29C0BCBE2C0783A70056B120 /* UIHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelpers.swift; sourceTree = "<group>"; };
-		29C0BCC02C07893D0056B120 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		29C0BCC32C0791140056B120 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		29C0BCC72C0791640056B120 /* RequestProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestProtocol.swift; sourceTree = "<group>"; };
 		29C0BCC92C0792FC0056B120 /* ClassifiedsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedsRequest.swift; sourceTree = "<group>"; };
@@ -138,7 +134,6 @@
 			isa = PBXGroup;
 			children = (
 				29C0BCBB2C0782FE0056B120 /* CategoryCell.swift */,
-				29C0BCC02C07893D0056B120 /* CategoryViewController.swift */,
 				29C0BCE22C08B46D0056B120 /* CategoriesViewController.swift */,
 				29C0BCE62C090CAD0056B120 /* CategoriesViewModel.swift */,
 				29BE244C2C090DBA00D01315 /* CategoriesService.swift */,
@@ -261,7 +256,6 @@
 			children = (
 				29C0BCBE2C0783A70056B120 /* UIHelpers.swift */,
 				29C0BC7F2C077CA20056B120 /* ViewController.swift */,
-				29BE24582C0A320100D01315 /* UIColor+Extension.swift */,
 				29BE245A2C0A36BD00D01315 /* LBCImageView.swift */,
 				29BE245E2C0A41F800D01315 /* LBCLabel.swift */,
 			);
@@ -467,7 +461,6 @@
 				29C0BCCA2C0792FC0056B120 /* ClassifiedsRequest.swift in Sources */,
 				29C0BCE32C08B46D0056B120 /* CategoriesViewController.swift in Sources */,
 				29C0BCB22C077E6C0056B120 /* ClassifiedAd.swift in Sources */,
-				29BE24592C0A320100D01315 /* UIColor+Extension.swift in Sources */,
 				29C0BCBF2C0783A70056B120 /* UIHelpers.swift in Sources */,
 				29C0BCBC2C0782FE0056B120 /* CategoryCell.swift in Sources */,
 				29C0BCCE2C079B990056B120 /* APIManager.swift in Sources */,
@@ -480,7 +473,6 @@
 				29C0BCCC2C0795E80056B120 /* NetworkError.swift in Sources */,
 				29BE24512C09222600D01315 /* ClassifiedsViewModel.swift in Sources */,
 				29BE24552C09D86D00D01315 /* ClassifiedCell.swift in Sources */,
-				29C0BCC12C07893D0056B120 /* CategoryViewController.swift in Sources */,
 				29C0BCE72C090CAD0056B120 /* CategoriesViewModel.swift in Sources */,
 				29C0BCB02C077E4E0056B120 /* Category.swift in Sources */,
 				29BE244F2C0921B400D01315 /* ClassifiedsViewController.swift in Sources */,

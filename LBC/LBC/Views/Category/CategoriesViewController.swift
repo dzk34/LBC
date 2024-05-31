@@ -9,11 +9,13 @@ import UIKit
 //import Combine
 
 class CategoriesViewController: ViewController {
-    let cellId = "CategoryCell"
-    var categories: [Category] = []
+    // MARK: Properties
+    private let cellId = "CategoryCell"
     private var viewModel: CategoriesViewModel
+    var categories: [Category] = []
 
 
+    // MARK: Views
     private lazy var collectionView: UICollectionView = {
         let view = UICollectionView()
         view.dataSource = self

@@ -8,12 +8,13 @@
 import UIKit
 
 class ClassifiedsViewController: ViewController {
-    let cellId = "ClassifiedCell"
-    var classifiedAd: [ClassifiedAd] = []
+    // MARK: Properties
+    private let cellId = "ClassifiedCell"
     private var viewModel: ClassifiedsViewModel
-
+    var classifiedAd: [ClassifiedAd] = []
     let category: Category?
 
+    // MARK: Views
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = Constants.padding
@@ -92,7 +93,7 @@ extension ClassifiedsViewController: UICollectionViewDelegateFlowLayout {
 
 extension ClassifiedsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ClassifiedDetailsViewController(classifiedAd: classifiedAd[indexPath.row])
+        let vc = ClassifiedDetailsViewController(classifiedAd: classifiedAd[indexPath.row], categoryName: category?.name)
         navigationController?.pushViewController(vc, animated: true)
     }
 }

@@ -9,7 +9,9 @@ import UIKit
 
 class ClassifiedDetailsViewController: ViewController {
     let classifiedAd: ClassifiedAd
+    let categoryName: String?
 
+    // MARK: Views
     private let scrollView: UIScrollView = {
         let view = UIScrollView()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -36,7 +38,6 @@ class ClassifiedDetailsViewController: ViewController {
     private lazy var titleLabel: LBCLabel = {
         let label = LBCLabel()
         label.textColor = .black
-        label.numberOfLines = 0
         return label
     }()
 
@@ -49,14 +50,13 @@ class ClassifiedDetailsViewController: ViewController {
 
     private lazy var categoryLabel: LBCLabel = {
         let label = LBCLabel()
-        label.textColor = .black
-        label.numberOfLines = 0
+        label.textColor = .lightGray
         return label
     }()
 
     private lazy var urgentLabel: LBCLabel = {
         let label = LBCLabel()
-        label.textColor = .systemOrange
+        label.textColor = .systemRed
         label.textAlignment = .right
         label.numberOfLines = 1
         return label
@@ -65,7 +65,14 @@ class ClassifiedDetailsViewController: ViewController {
     private lazy var descriptionLabel: LBCLabel = {
         let label = LBCLabel()
         label.textColor = .darkGray
-        label.numberOfLines = 0
+        return label
+    }()
+
+    private lazy var dateLabel: LBCLabel = {
+        let label = LBCLabel()
+        label.textColor = .darkGray
+        label.textAlignment = .right
+        label.numberOfLines = 1
         return label
     }()
 
@@ -86,10 +93,12 @@ class ClassifiedDetailsViewController: ViewController {
         return button
     }()
     
-    init(classifiedAd: ClassifiedAd) {
+    init(classifiedAd: ClassifiedAd, categoryName: String?) {
         self.classifiedAd = classifiedAd
+        self.categoryName = categoryName
         super.init(nibName: nil, bundle: nil)
         setupUI()
+        fillInData()
     }
     
     required init?(coder: NSCoder) {
@@ -102,24 +111,13 @@ class ClassifiedDetailsViewController: ViewController {
         scrollView.addSubview(adImageView)
         scrollView.addSubview(stackView)
         
+        stackView.addArrangedSubview(urgentLabel)
+        stackView.addArrangedSubview(dateLabel)
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(priceLabel)
         stackView.addArrangedSubview(categoryLabel)
-        stackView.addArrangedSubview(urgentLabel)
         stackView.addArrangedSubview(descriptionLabel)
         stackView.addArrangedSubview(contactButton)
-
-        titleLabel.text = classifiedAd.title
-        priceLabel.text = "\(classifiedAd.price) \(Constants.currency)"
-        categoryLabel.text = "category?.name"
-        urgentLabel.text = classifiedAd.isUrgent ? Constants.urgencyText : ""
-        descriptionLabel.text = classifiedAd.description
-        
-        if let imageUrl = classifiedAd.imagesUrl, let thumb = imageUrl.thumb, let imageUrl = URL(string: thumb) {
-            adImageView.downloadFrom(url: imageUrl)
-        } else {
-            adImageView.image = UIImage(named: Constants.noImagePlaceholder)
-        }
 
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
@@ -140,5 +138,34 @@ class ClassifiedDetailsViewController: ViewController {
             stackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor, constant: -Constants.padding / 2),
             stackView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: -Constants.padding / 2)
         ])
+    }
+    
+    func fillInData() {
+        dateLabel.text = "Posté le \(formatDate(classifiedAd.creationDate))"
+        titleLabel.text = classifiedAd.title
+        priceLabel.text = "\(classifiedAd.price) \(Constants.currency)"
+        categoryLabel.text = categoryName ?? ""
+        urgentLabel.text = classifiedAd.isUrgent ? Constants.urgencyText : ""
+        descriptionLabel.text = classifiedAd.description
+        
+        if let imageUrl = classifiedAd.imagesUrl, let thumb = imageUrl.thumb, let imageUrl = URL(string: thumb) {
+            adImageView.downloadFrom(url: imageUrl)
+        } else {
+            adImageView.image = UIImage(named: Constants.noImagePlaceholder)
+        }
+    }
+    
+    func formatDate(_ creationDate: String) -> String {
+        let dateFormatter = DateFormatter();
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
+
+        if let date = dateFormatter.date(from: creationDate) {
+            dateFormatter.locale = Locale(identifier: "fr_FR")
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+//            let newDate = dateFormatter.string(from: Date())
+            return dateFormatter.string(from: Date())
+        }
+        
+        return ""
     }
 }

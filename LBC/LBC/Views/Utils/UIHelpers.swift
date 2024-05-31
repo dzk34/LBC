@@ -16,14 +16,3 @@ enum Constants {
     static let labelSpacing: CGFloat = 24.0
     static let rowHeight: CGFloat = 160.0
 }
-
-//public extension UIColor {
-//    static func random() -> UIColor {
-//        UIColor(
-//            red: .random(in: 0...1),
-//            green: .random(in: 0...1),
-//            blue: .random(in: 0...1),
-//            alpha: .random(in: 0...1)
-//        )
-//    }
-//}

@@ -46,14 +46,14 @@ final class ClassifiedCell: UICollectionViewCell {
 
     private lazy var categoryLabel: LBCLabel = {
         let label = LBCLabel()
-        label.textColor = .black
+        label.textColor = .lightGray
         label.numberOfLines = 1
         return label
     }()
 
     private lazy var urgentLabel: LBCLabel = {
         let label = LBCLabel()
-        label.textColor = .systemOrange
+        label.textColor = .systemRed
         label.textAlignment = .right
         label.numberOfLines = 1
         return label
