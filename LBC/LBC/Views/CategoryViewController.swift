@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CategoryViewController: UIViewController {
+class CategoryViewController: ViewController {
     let category: Category?
 
     init(category: Category?) {
@@ -21,7 +21,6 @@ class CategoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
         
         if let category = category {
             print("received category: \(category.name)")

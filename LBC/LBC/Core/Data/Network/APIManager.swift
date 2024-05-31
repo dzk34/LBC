@@ -9,7 +9,7 @@ import Foundation
 
 protocol APIManagerProtocol {
     func perform(_ request: RequestProtocol) async throws -> Data
-    static func downloadImageData(from url: URL) async throws -> Data
+    func downloadImageData(from url: URL) async throws -> Data
 }
 
 class APIManager: APIManagerProtocol {
@@ -28,9 +28,9 @@ class APIManager: APIManagerProtocol {
         return data
     }
     
-    static func downloadImageData(from url: URL) async throws -> Data {
+    func downloadImageData(from url: URL) async throws -> Data {
         let request = URLRequest(url: url)
-        let (data, _) = try await URLSession.shared.data(for: request)
+        let (data, _) = try await urlSession.data(for: request)
         return data
     }
 }

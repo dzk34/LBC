@@ -17,8 +17,8 @@ final class ClassifiedCell: UICollectionViewCell {
         return stackView
     }()
 
-    private lazy var adImageView: UIImageView = {
-        let imageView = UIImageView()
+    private lazy var adImageView: LBCImageView = {
+        let imageView = LBCImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -27,7 +27,6 @@ final class ClassifiedCell: UICollectionViewCell {
     private lazy var separatorView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .yellow
         return view
     }()
 
@@ -44,7 +43,7 @@ final class ClassifiedCell: UICollectionViewCell {
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .orange
+        label.textColor = .systemOrange
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -64,7 +63,7 @@ final class ClassifiedCell: UICollectionViewCell {
     private lazy var urgentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .red
+        label.textColor = .systemOrange
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textAlignment = .right
         label.numberOfLines = 1
@@ -115,16 +114,10 @@ final class ClassifiedCell: UICollectionViewCell {
         categoryLabel.text = category?.name
         urgentLabel.text = classifiedAd.isUrgent ? Constants.urgencyText : ""
         
-
         if let imageUrl = classifiedAd.imagesUrl, let small = imageUrl.small, let imageUrl = URL(string: small) {
-            Task {
-                do {
-                    let data = try await APIManager.downloadImageData(from: imageUrl)
-                    adImageView.image = UIImage(data: data)
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
+            adImageView.downloadFrom(url: imageUrl)
+        } else {
+            adImageView.image = UIImage(named: Constants.noImagePlaceholder)
         }
     }
 }

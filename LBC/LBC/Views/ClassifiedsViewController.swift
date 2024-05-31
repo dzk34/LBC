@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ClassifiedsViewController: UIViewController {
+class ClassifiedsViewController: ViewController {
     let cellId = "ClassifiedCell"
     var classifiedAd: [ClassifiedAd] = []
     private var viewModel: ClassifiedsViewModel
@@ -22,10 +22,10 @@ class ClassifiedsViewController: UIViewController {
 
         let view = UICollectionView(frame: view.frame, collectionViewLayout: layout)
         view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = .clear
         view.dataSource = self
         view.delegate = self
         view.register(ClassifiedCell.self, forCellWithReuseIdentifier: cellId)
-        view.backgroundColor = .clear
         return view
     }()
 
@@ -55,7 +55,6 @@ class ClassifiedsViewController: UIViewController {
     }
 
     func setupUI() {
-        view.backgroundColor = .white
         view.addSubview(collectionView)
 
 //        NSLayoutConstraint.activate([

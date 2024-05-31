@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ClassifiedDetailsViewController: UIViewController {
+class ClassifiedDetailsViewController: ViewController {
     let classifiedAd: ClassifiedAd
 
     private let scrollView: UIScrollView = {
@@ -26,8 +26,8 @@ class ClassifiedDetailsViewController: UIViewController {
         return stackView
     }()
 
-    private lazy var adImageView: UIImageView = {
-        let imageView = UIImageView()
+    private lazy var adImageView: LBCImageView = {
+        let imageView = LBCImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
         return imageView
@@ -46,7 +46,7 @@ class ClassifiedDetailsViewController: UIViewController {
     private lazy var priceLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .orange
+        label.textColor = .systemOrange
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textAlignment = .left
         label.numberOfLines = 1
@@ -66,7 +66,7 @@ class ClassifiedDetailsViewController: UIViewController {
     private lazy var urgentLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.textColor = .red
+        label.textColor = .systemRed
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.textAlignment = .right
         label.numberOfLines = 1
@@ -89,10 +89,10 @@ class ClassifiedDetailsViewController: UIViewController {
         button.setTitle("Contacter le vendeur", for: .normal)
         
         let textColor = UIColor { (trait) -> UIColor in
-            return trait.userInterfaceStyle == .dark ? .orange : .white
+            return trait.userInterfaceStyle == .dark ? .systemOrange : .white
         }
         let backgroundColor = UIColor { (trait) -> UIColor in
-            return trait.userInterfaceStyle == .dark ? .white : .orange
+            return trait.userInterfaceStyle == .dark ? .white : .systemOrange
         }
         button.tintColor = textColor
         button.backgroundColor = backgroundColor
@@ -110,8 +110,6 @@ class ClassifiedDetailsViewController: UIViewController {
     }
     
     func setupUI() {
-        view.backgroundColor = .white
-        
         view.addSubview(scrollView)
 
         scrollView.addSubview(adImageView)
@@ -131,16 +129,11 @@ class ClassifiedDetailsViewController: UIViewController {
         descriptionLabel.text = classifiedAd.description
         
         if let imageUrl = classifiedAd.imagesUrl, let thumb = imageUrl.thumb, let imageUrl = URL(string: thumb) {
-            Task {
-                do {
-                    let data = try await APIManager.downloadImageData(from: imageUrl)
-                    adImageView.image = UIImage(data: data)
-                } catch {
-                    print("Error: \(error.localizedDescription)")
-                }
-            }
+            adImageView.downloadFrom(url: imageUrl)
+        } else {
+            adImageView.image = UIImage(named: Constants.noImagePlaceholder)
         }
-        
+
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),

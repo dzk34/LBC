@@ -8,7 +8,7 @@
 import UIKit
 //import Combine
 
-class CategoriesViewController: UIViewController {
+class CategoriesViewController: ViewController {
     let cellId = "CategoryCell"
     var categories: [Category] = []
     private var viewModel: CategoriesViewModel
@@ -42,7 +42,6 @@ class CategoriesViewController: UIViewController {
     }
 
     func setupUI() {
-        view.backgroundColor = .white
         let layout = UICollectionViewFlowLayout()
         layout.itemSize = CGSize(width: view.frame.width - Constants.padding, height: 150)
         layout.minimumInteritemSpacing = 10
