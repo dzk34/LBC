@@ -80,7 +80,7 @@ class ClassifiedDetailsViewController: ViewController {
         let button = UIButton(type: .system)
         button.layer.cornerRadius = Constants.padding / 2
         button.layer.masksToBounds = true
-        button.setTitle("Contacter le vendeur", for: .normal)
+        button.setTitle(Constants.contactSellerText, for: .normal)
         
         let textColor = UIColor { (trait) -> UIColor in
             return trait.userInterfaceStyle == .dark ? .systemOrange : .white
@@ -159,10 +159,9 @@ class ClassifiedDetailsViewController: ViewController {
         let dateFormatter = DateFormatter();
         dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZ"
 
-        if let date = dateFormatter.date(from: creationDate) {
+        if let _ = dateFormatter.date(from: creationDate) {
             dateFormatter.locale = Locale(identifier: "fr_FR")
             dateFormatter.dateFormat = "dd MMMM yyyy"
-//            let newDate = dateFormatter.string(from: Date())
             return dateFormatter.string(from: Date())
         }
         

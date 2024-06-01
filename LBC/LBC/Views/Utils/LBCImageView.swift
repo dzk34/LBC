@@ -8,7 +8,7 @@
 import UIKit
 
 class LBCImageView: UIImageView {
-    let apiManager: APIManager = APIManager()
+    @InjectedDependency(\.apiManager) var apiManager: APIManagerProtocol
     
     func downloadFrom(url: URL) {
         Task {

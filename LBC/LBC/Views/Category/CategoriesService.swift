@@ -12,11 +12,7 @@ protocol CategoriesServiceProtocol {
 }
 
 struct CategoriesService: CategoriesServiceProtocol {
-    private let requestManager: RequestManagerProtocol
-
-    init(requestManager: RequestManagerProtocol) {
-        self.requestManager = requestManager
-    }
+    @InjectedDependency(\.requestManager) var requestManager: RequestManagerProtocol
 }
 
 extension CategoriesService {

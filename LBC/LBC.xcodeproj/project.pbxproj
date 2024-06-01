@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		292DD75A2C0B0A7E001F426C /* ServiceContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 292DD7592C0B0A7E001F426C /* ServiceContainer.swift */; };
+		299D90E92C0B23B300D3E764 /* ServiceInjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299D90E82C0B23B300D3E764 /* ServiceInjection.swift */; };
 		29BE244D2C090DBA00D01315 /* CategoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE244C2C090DBA00D01315 /* CategoriesService.swift */; };
 		29BE244F2C0921B400D01315 /* ClassifiedsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE244E2C0921B400D01315 /* ClassifiedsViewController.swift */; };
 		29BE24512C09222600D01315 /* ClassifiedsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 29BE24502C09222600D01315 /* ClassifiedsViewModel.swift */; };
@@ -63,6 +65,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		292DD7592C0B0A7E001F426C /* ServiceContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceContainer.swift; sourceTree = "<group>"; };
+		299D90E82C0B23B300D3E764 /* ServiceInjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceInjection.swift; sourceTree = "<group>"; };
 		29BE244C2C090DBA00D01315 /* CategoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesService.swift; sourceTree = "<group>"; };
 		29BE244E2C0921B400D01315 /* ClassifiedsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedsViewController.swift; sourceTree = "<group>"; };
 		29BE24502C09222600D01315 /* ClassifiedsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassifiedsViewModel.swift; sourceTree = "<group>"; };
@@ -210,6 +214,8 @@
 				29C0BCC22C0790FE0056B120 /* Data */,
 				29C0BCB32C077F350056B120 /* Utils */,
 				29C0BCAC2C077E1A0056B120 /* Domain */,
+				292DD7592C0B0A7E001F426C /* ServiceContainer.swift */,
+				299D90E82C0B23B300D3E764 /* ServiceInjection.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -454,6 +460,7 @@
 				29C0BCD02C079DD50056B120 /* RequestManager.swift in Sources */,
 				29BE244D2C090DBA00D01315 /* CategoriesService.swift in Sources */,
 				29C0BC802C077CA20056B120 /* ViewController.swift in Sources */,
+				292DD75A2C0B0A7E001F426C /* ServiceContainer.swift in Sources */,
 				29BE245B2C0A36BD00D01315 /* LBCImageView.swift in Sources */,
 				29C0BCD22C079F390056B120 /* DataParser.swift in Sources */,
 				29C0BCB92C077FA00056B120 /* MockData.swift in Sources */,
@@ -475,6 +482,7 @@
 				29BE24552C09D86D00D01315 /* ClassifiedCell.swift in Sources */,
 				29C0BCE72C090CAD0056B120 /* CategoriesViewModel.swift in Sources */,
 				29C0BCB02C077E4E0056B120 /* Category.swift in Sources */,
+				299D90E92C0B23B300D3E764 /* ServiceInjection.swift in Sources */,
 				29BE244F2C0921B400D01315 /* ClassifiedsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

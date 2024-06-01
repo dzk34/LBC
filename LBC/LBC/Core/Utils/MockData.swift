@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class MockData: ObservableObject {
+final class MockData {
     var listings: [ClassifiedAd] = load("listing.json")
     var categories: [Category] = load("categories.json")
 }

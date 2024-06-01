@@ -7,14 +7,10 @@
 
 import Foundation
 
-final class CategoriesViewModel: ObservableObject {
-    private let categoriesService: CategoriesServiceProtocol
+final class CategoriesViewModel {
+    @InjectedDependency(\.categoriesService) var categoriesService: CategoriesServiceProtocol
 
-    @Published var categories: [Category] = []
-
-    init(categoriesService: CategoriesServiceProtocol) {
-        self.categoriesService = categoriesService
-    }
+    var categories: [Category] = []
     
     func fetchCategories() async -> [Category]{
         await categoriesService.fetchCategories()

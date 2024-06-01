@@ -10,9 +10,10 @@ import UIKit
 class ClassifiedsViewController: ViewController {
     // MARK: Properties
     private let cellId = "ClassifiedCell"
-    private var viewModel: ClassifiedsViewModel
     var classifiedAd: [ClassifiedAd] = []
     let category: Category?
+    @InjectedDependency(\.classifiedsViewModel) var classifiedsViewModel: ClassifiedsViewModel
+
 
     // MARK: Views
     private lazy var collectionView: UICollectionView = {
@@ -28,8 +29,7 @@ class ClassifiedsViewController: ViewController {
         return view
     }()
 
-    init(viewModel: ClassifiedsViewModel, category: Category?) {
-        self.viewModel = viewModel
+    init(category: Category?) {
         self.category = category
         super.init(nibName: nil, bundle: nil)
     }
@@ -58,7 +58,7 @@ class ClassifiedsViewController: ViewController {
     }
     
     func loadData() async {
-        classifiedAd = await viewModel.fetchClassifieds()
+        classifiedAd = await classifiedsViewModel.fetchClassifieds()
     }
 }
 

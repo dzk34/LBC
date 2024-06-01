@@ -8,19 +8,12 @@
 import Foundation
 
 protocol RequestManagerProtocol {
-    var apiManager: APIManagerProtocol { get }
-    var dataParser: DataParserProtocol { get }
     func perform<T: Decodable>(_ request: RequestProtocol) async throws -> T
 }
 
 class RequestManager: RequestManagerProtocol {
-    let dataParser: DataParserProtocol
-    let apiManager: APIManagerProtocol
-
-    init(apiManager: APIManagerProtocol, dataParser: DataParserProtocol) {
-        self.apiManager = apiManager
-        self.dataParser = dataParser
-    }
+    @InjectedDependency(\.apiManager) var apiManager: APIManagerProtocol
+    @InjectedDependency(\.dataParser) var dataParser: DataParserProtocol
     
     func perform<T>(_ request: RequestProtocol) async throws -> T where T : Decodable {
         let data = try await apiManager.perform(request)

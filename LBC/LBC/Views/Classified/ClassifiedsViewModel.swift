@@ -7,15 +7,11 @@
 
 import Foundation
 
-final class ClassifiedsViewModel: ObservableObject {
-    private let classifiedsService: ClassifiedsServiceProtocol
+final class ClassifiedsViewModel {
+    @InjectedDependency(\.classifiedsService) var classifiedsService: ClassifiedsServiceProtocol
 
-    @Published var categories: [Category] = []
+    var categories: [Category] = []
 
-    init(classifiedsService: ClassifiedsServiceProtocol) {
-        self.classifiedsService = classifiedsService
-    }
-    
     func fetchClassifieds() async -> [ClassifiedAd]{
         await classifiedsService.fetchClassifieds()
     }

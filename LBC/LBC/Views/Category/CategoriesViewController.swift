@@ -11,7 +11,8 @@ import UIKit
 class CategoriesViewController: ViewController {
     // MARK: Properties
     private let cellId = "CategoryCell"
-    private var viewModel: CategoriesViewModel
+    
+    @InjectedDependency(\.categoriesViewModel) var categoriesViewModel: CategoriesViewModel
     var categories: [Category] = []
 
 
@@ -23,14 +24,6 @@ class CategoriesViewController: ViewController {
         return view
     }()
     
-    init(viewModel: CategoriesViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,7 +38,7 @@ class CategoriesViewController: ViewController {
 
     func setupUI() {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: view.frame.width - Constants.padding, height: 150)
+        layout.itemSize = CGSize(width: view.frame.width * 0.8, height: 150)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing = 10
         
@@ -59,7 +52,7 @@ class CategoriesViewController: ViewController {
     }
     
     func loadData() async {
-        categories = await viewModel.fetchCategories()
+        categories = await categoriesViewModel.fetchCategories()
     }
 }
 
@@ -77,7 +70,7 @@ extension CategoriesViewController: UICollectionViewDataSource {
 
 extension CategoriesViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let vc = ClassifiedsViewController(viewModel: ClassifiedsViewModel(classifiedsService: ClassifiedsService(requestManager: RequestManager(apiManager: APIManager(), dataParser: DataParser()))), category: categories[indexPath.row])
+        let vc = ClassifiedsViewController(category: categories[indexPath.row])
         navigationController?.pushViewController(vc, animated: true)
     }
 }
