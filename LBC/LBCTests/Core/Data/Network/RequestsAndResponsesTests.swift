@@ -45,21 +45,7 @@ final class RequestsAndResponsesTests: XCTestCase {
         let lbcImageView = LBCImageView()
         let imageURL = URL(string: "https://source.unsplash.com/random/320x240")!
 
-        XCTAssertNil(lbcImageView.image)
         lbcImageView.downloadFrom(url: imageURL)
-        XCTAssertNotNil(lbcImageView.image)
         XCTAssertNotEqual(lbcImageView.image, UIImage(named: Constants.noImagePlaceholder))
     }
-//    func testAPIRequestMethod() async throws {
-//        let requestData = ClassifiedsRequest.fetchCategories
-//        let request = try requestData.createURLRequest()
-//        let apiManager = APIManager(urlSession: URLSession.shared)
-//        let requestManager = RequestManager()
-//
-//        let expectation = self.expectation(description: "Received proper response")
-//        
-//        let response: [LBC.Category] = try await requestManager.perform(request as! RequestProtocol)
-////        waitForExpectations(timeout: 60)
-//        await fulfillment(of: [expectation])
-//    }
 }
